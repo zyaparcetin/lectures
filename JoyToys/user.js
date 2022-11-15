@@ -1,5 +1,5 @@
 class User {
-  constructor(name,age) {
+  constructor(name, age) {
     this.name = name
     this.age = age
     this.likes = []
@@ -18,7 +18,6 @@ class User {
 
   addToBasket(product) {
     this.basket.push(product)
-    product.addedToBasketBy.push(this)
   }
 
   review(product) {

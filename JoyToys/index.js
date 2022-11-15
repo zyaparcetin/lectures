@@ -11,3 +11,4 @@ kerem.addToBasket(kitty)
 mete.addToBasket(teddyBear)
 
 console.log(kerem)
+console.log(mete) 
