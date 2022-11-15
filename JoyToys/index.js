@@ -3,11 +3,11 @@ class User {
     this.name = name
     this.age = age
     this.likes = []
-    this.addsToBasket = []
+    this.basket = []
     this.reviews = []
   }
 
-  greet(user) {
+  greet() {
     console.log(`Hello ${user.name}, welcome to Joy Toys!`)
   }
 
@@ -17,7 +17,7 @@ class User {
   }
 
   addToBasket(product) {
-    this.addsToBasket.push(product)
+    this.basket.push(product)
     product.addedToBasketBy.push(this)
   }
 
@@ -36,3 +36,14 @@ class Product {
     this.reviewedBy = []
   }
 }
+
+const kerem = new User("kerem", 11);
+const mete = new User("mete", 7)
+
+const teddyBear = new Product("teddy bear", 19.99)
+const kitty = new Product("kitty", 14.99)
+
+kerem.addToBasket(kitty)
+mete.addToBasket(teddyBear)
+
+console.log(kerem)
