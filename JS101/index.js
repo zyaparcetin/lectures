@@ -36,5 +36,11 @@ const photo = new Photo('berlin.jpg')
 steve.addPhoto(photo)
 armagan.likePhoto(photo)
 mihri.likePhoto(photo)
-//console.log(mihri.likes[0].likedBy[0].likes[0].filename == mihri.likes[0].filename, mihri.likes[0].filename == steve.photos[0].filename)
-console.log('photo.likedBy:',photo.likedBy)
+console.log(
+  mihri.likes[0].likedBy[0].likes[0].filename == mihri.likes[0].filename, 
+  mihri.likes[0].filename == steve.photos[0].filename);
+//console.log('photo.likedBy:',photo.likedBy)
+
+setInterval(() => {
+  console.log("hello! is there anybody out there?");
+}, 1000);
