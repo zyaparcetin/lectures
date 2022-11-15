@@ -1,46 +1,22 @@
-class Person {
-  constructor(name, age) {
-    this.name = name
-    this.age = age
-    this.photos = []
-    this.likes = []
-  }
+const Person = require("./person");
+const Photo = require("./photo");
 
-  greet(person) {
-    console.log(`Hello, ${person.name}, this is ${this.name}`)
-  }
+const mihri = new Person('mihri', 35);
+const steve = new Person('steve', 21);
+const armagan = new Person('armagan', 36);
 
-  addPhoto(photo) {
-    this.photos.push(photo)
-  }
+const berlinPhoto = new Photo("berlin.jpg");
+const munichPhoto = new Photo("munich.jpg");
 
-  likePhoto(photo) {
-    this.likes.push(photo)
-    photo.likedBy.push(this)
-  }
-}
+steve.addPhoto(berlinPhoto);
+steve.addPhoto(munichPhoto);
 
-class Photo {
-  constructor(filename) {
-    this.filename = filename
-    this.likedBy = []
-  }
-}
+steve.bio = 
+  "An awesome hacker who has seen it all, now sharing them all with you.";
 
+armagan.likePhoto(berlinPhoto);
+mihri.likePhoto(berlinPhoto);
 
-const mihri = new Person('mihri', 35)
-const steve = new Person('steve', 21)
-const armagan = new Person('armagan', 36)
+console.log(steve.profile);
 
-const photo = new Photo('berlin.jpg')
-steve.addPhoto(photo)
-armagan.likePhoto(photo)
-mihri.likePhoto(photo)
-console.log(
-  mihri.likes[0].likedBy[0].likes[0].filename == mihri.likes[0].filename, 
-  mihri.likes[0].filename == steve.photos[0].filename);
-//console.log('photo.likedBy:',photo.likedBy)
-
-setInterval(() => {
-  console.log("hello! is there anybody out there?");
-}, 1000);
+//steve.profile = "nobody";
