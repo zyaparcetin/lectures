@@ -10,6 +10,7 @@
 
 
 const dayInMs = 1000 * 60 * 60 * 24
+const today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate())
 
 
 class Reservation {
@@ -18,12 +19,28 @@ class Reservation {
 
 
   get duration() {
-    return (this.endDate - this.startDate) / dayInMs
+    return (this.#endDate - this.#startDate) / dayInMs
+  }
+
+  set startDate(newDate) {
+    if (newDate >= today) {
+      this.#startDate = newDate
+    } else {
+      throw new Error('start date should be today or in the future')
+  }
+}
+
+  set endDate(newDate) {
+    if (newDate > this.#startDate) {
+      this.#endDate = newDate
+    } else {
+      throw new Error('end date should be later than start date');  
+    }
   }
 }
 
 
-function shouldPrintDuration2() {
+/*function shouldPrintDuration2() {
   const reservation = new Reservation()
 
 
@@ -32,7 +49,7 @@ function shouldPrintDuration2() {
 
 
   console.log(reservation.duration)
-}
+}*/
 
 
 function shouldThrowErrorEndDateIsSmaller() {
@@ -47,7 +64,7 @@ function shouldThrowErrorEndDateIsSmaller() {
 }
 
 
-function shouldThrowErrorStartDateInThePast() {
+/*function shouldThrowErrorStartDateInThePast() {
   const reservation = new Reservation()
 
 
@@ -81,7 +98,7 @@ function shouldThrowErrorEndDateIsSmallerThanToday() {
 
   console.log(reservation.duration)
 }
-
+*/
 
 shouldPrintDuration2()
 shouldThrowErrorEndDateIsSmaller()
