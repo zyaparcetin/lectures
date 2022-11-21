@@ -1,0 +1,31 @@
+@startuml
+
+actor User
+participant "Photo" as A
+participant "FileUpload" as B
+participant "FileStorage" as C
+  
+User -> A: Create a new photo
+activate A
+A -> B: upload(file)
+activate B
+
+... uploading ...
+
+B -> C: writeToDisk(file)
+activate C
+
+... elapsed time ...
+
+C --> B: the photo
+deactivate C
+
+B --> A: the photo
+deactivate B
+
+A -> A: Apply filters
+A --> User: Photo uploaded
+
+deactivate A
+
+@enduml
