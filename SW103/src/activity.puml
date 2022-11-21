@@ -1,0 +1,18 @@
+@startuml
+
+start 
+
+:Greet people;
+:Sit at the table;
+:Order food;
+if (Food arrives?) then (yes)
+  :Eat;
+else (no)
+  repeat
+    :Wait for food;
+  repeat while (not arrived?)
+  :Eat;
+endif
+stop
+
+@enduml
