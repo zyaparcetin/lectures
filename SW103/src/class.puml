@@ -36,8 +36,8 @@ package Farm {
   class Animal {}
   class Bird extends Animal {}
   class Chicken extends Bird {}
-  class Alligator {}
-  class Fox {}
+  class Alligator extends Animal {}
+  class Fox extends Animal {}
 } 
 
 Fox --> Chicken : eats
