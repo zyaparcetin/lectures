@@ -1,0 +1,45 @@
+@startuml Picories Class Diagram
+class Person {
+  -name: string 
+  +age: number
+  -photos: [Photo]
+
+  constructor(name: string, age: number)
+  addPhoto(photo: Photo)
+  likePhoto(photo: Photo)
+}
+
+class Photo {
+  filename: string 
+
+  likedBy: [Person]
+  constructor(filename: string)
+}
+
+Person  "1" o-----> "0..*"Photo : keeps, likes
+Photo -----> "0..*" Person : liked by
+
+package School {
+  class Student {}
+  class Teacher {}
+  class Class {}
+  class Dream {}
+}
+
+Student *- Dream
+Class o-- Student
+Class --> Teacher
+
+Teacher -> Student : teaches
+
+package Farm {
+  class Animal {}
+  class Bird extends Animal {}
+  class Chicken extends Bird {}
+  class Alligator {}
+  class Fox {}
+} 
+
+Fox --> Chicken : eats
+Dream --> Chicken
+@enduml
