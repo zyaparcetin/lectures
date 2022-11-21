@@ -1,0 +1,21 @@
+@startuml
+
+state "Write code" as State1
+state "Push to GitHub" as State2
+
+State1 --> State2 : Succeeded
+State1 --> [*] : Aborted
+State2 --> Delivery : Succeeded
+State2 --> [*] : Aborted
+
+state Delivery {
+  [*] --> Test 
+  Test --> Deployment : tests passed
+}
+
+Delivery --> Delivery : Failed
+Delivery --> Production : Deployment succeeded
+
+Production -right-> [*] : Succeeded
+
+@enduml
