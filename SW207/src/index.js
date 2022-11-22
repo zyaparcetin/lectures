@@ -16,4 +16,6 @@ steve.bio = 'An awesome hacker who has seen it all, now sharing them all with yo
 armagan.likePhoto(berlinPhoto)
 mihri.likePhoto(berlinPhoto)
 
+//steve.profile = "Steve's gorgeous new profile"
+
 console.log(steve.profile)
